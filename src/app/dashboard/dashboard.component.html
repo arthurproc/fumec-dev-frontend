@@ -8,12 +8,12 @@
                             <i class="material-icons">local_hospital</i>
                         </div>
                         <p class="card-category">Casos Confirmados</p>
-                        <h3 class="card-title">21300</h3>
+                        <h3 class="card-title">{{today.confirmados}}</h3>
                     </div>
                     <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">date_range</i> Últimas 24 horas
-                        </div>
+                        <p class="card-category">
+                            <span class="text-danger"><i class="fa fa-long-arrow-up"></i> {{ taxas.confirmado }}% </span> desde a última semana.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -24,12 +24,12 @@
                             <i class="material-icons">warning</i>
                         </div>
                         <p class="card-category">Casos Suspeitos</p>
-                        <h3 class="card-title">7500</h3>
+                        <h3 class="card-title">{{today.suspeitos}}</h3>
                     </div>
                     <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">date_range</i> Últimas 24 horas
-                        </div>
+                        <p class="card-category">
+                            <span class="text-danger"><i class="fa fa-long-arrow-up"></i> {{ taxas.suspeito }}% </span> desde a última semana.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -40,27 +40,24 @@
                             <i class="material-icons">thumb_up</i>
                         </div>
                         <p class="card-category">Casos descartados</p>
-                        <h3 class="card-title">320</h3>
+                        <h3 class="card-title">{{today.descartados}}</h3>
                     </div>
                     <div class="card-footer">
-                        <div class="stats">
-                            <i class="material-icons">date_range</i> Últimas 24 horas
-                        </div>
+                        <p class="card-category">
+                            <span class="text-danger"><i class="fa fa-long-arrow-up"></i> {{ taxas.descartado }}% </span> desde a última semana.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card card-chart">
                     <div class="card-header card-header-success">
                         <div class="ct-chart" id="dailySalesChart"></div>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Média móvel de casos</h4>
-                        <p class="card-category">
-                            <span class="text-warning"><i class="fa fa-long-arrow-up"></i> 5% </span> de crescimento desde a última semana.
-                        </p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -69,16 +66,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card card-chart">
                     <div class="card-header card-header-warning">
                         <div class="ct-chart" id="websiteViewsChart"></div>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Média mível de casos suspeitos</h4>
-                        <p class="card-category">
-                            <span class="text-warning"><i class="fa fa-long-arrow-up"></i> 5% </span> de crescimento desde a última semana.
-                        </p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -87,16 +81,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card card-chart">
                     <div class="card-header card-header-danger">
                         <div class="ct-chart" id="completedTasksChart"></div>
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Média móvel de mortes</h4>
-                        <p class="card-category">
-                            <span class="text-danger"><i class="fa fa-long-arrow-up"></i> 5% </span> de crescimento desde a última semana.
-                        </p>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
