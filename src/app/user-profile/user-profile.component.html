@@ -17,51 +17,54 @@
                       <p class="card-category">Complete seu perfil</p>
                   </div>
                   <div class="card-body">
-                      <form>
+                      <form (ngSubmit)="handleSaveUserInfo()">
                           <div class="row">
                               <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Usuário">
+                                    <input matInput required [formControl]="formModelUserInfo.username" placeholder="Usuário">
                                   </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Email" type="email">
+                                    <input matInput required [formControl]="formModelUserInfo.email" placeholder="Email" type="email">
                                   </mat-form-field>
                               </div>
                           </div>
                           <div class="row">
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Nome" type="text">
+                                  <input matInput required [formControl]="formModelUserInfo.name" placeholder="Nome" type="text">
                                 </mat-form-field>
                               </div>
                               <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
-                                  <input matInput placeholder="Sobrenome" type="text">
+                                  <input matInput required [formControl]="formModelUserInfo.surname" placeholder="Sobrenome" type="text">
                                 </mat-form-field>
                               </div>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6 col-lg-6">   <!--POR NO MEIO-->
-                              <button mat-raised-button type="submit" class="btn btn-danger pull-right">Salvar</button>
-                              </div>
+                          <div class="d-flex justify-content-center">   <!--POR NO MEIO-->
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Salvar</button>
                           </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Senha atual" type="text">
-                              </mat-form-field>
-                            </div>
-                            <div class="col-md-6">
-                              <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Nova senha" type="text">
-                              </mat-form-field>
-                            </div>
-                        </div>
+                        </form>
 
+                        <form (ngSubmit)="handleSavePassword()">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput required [formControl]="formModelPassword.password" placeholder="Senha atual" type="text">
+                              </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                              <mat-form-field class="example-full-width">
+                                <input matInput required [formControl]="formModelPassword.newPassword" placeholder="Nova senha" type="text">
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-center">   <!--POR NO MEIO-->
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Trocar Senha</button>
+                          </div>
                           <div class="clearfix"></div>
-                      </form>
+                        </form>
                   </div>
               </div>
           </div>
