@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
+import { Paciente } from 'app/model/paciente.model';
+import { PacienteService } from 'app/services/paciente.service';
 
 @Component({
   selector: 'app-finalizar-cadastro',
@@ -13,7 +15,7 @@ export class FinalizarCadastroComponent implements OnInit {
     confirmPassword: new FormControl("", [Validators.required]), 
   }
 
-  constructor() { }
+  constructor(private pacieteService: PacienteService) { }
 
   ngOnInit() {
   }
