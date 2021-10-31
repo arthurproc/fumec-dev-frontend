@@ -1,48 +1,28 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Paciente } from './../model/paciente.model';
+import { Status } from './../model/status.model';
 
-const status = [
-  {
-    id: 1,
-    paciente: 2,
-    sintomas: [],
-    dataStatus: "2020-03-16T03:00:00.000Z",
-    inicioSintomas: "2020-03-14T03:00:00.000Z",
-    previsaoColeta: "2020-03-21T03:00:00.000Z",
-    outrosSintomas: ", Sim",
-    situacao: "BAIXA PROBABILIDADE",
-    assintomatico: false,
-    createdAt: "2020-08-13T04:55:59.530Z",
-    updatedAt: "2020-08-13T04:55:59.530Z",
-  },
-  {
-    id: 2,
-    paciente: 1,
-    sintomas: [],
-    dataStatus: "2020-03-16T03:00:00.000Z",
-    inicioSintomas: "2020-03-14T03:00:00.000Z",
-    previsaoColeta: "2020-03-21T03:00:00.000Z",
-    outrosSintomas: ", Sim",
-    situacao: "BAIXA PROBABILIDADE",
-    assintomatico: false,
-    createdAt: "2020-08-13T04:55:59.530Z",
-    updatedAt: "2020-08-13T04:55:59.530Z",
-  },
-]
+
 @Injectable({
   providedIn: 'root'
 })
 export class StatusService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) {}
 
-  Get(id = null) {
-    if (id !== null) {
-      return status.find(stat => stat.id === id);
-    }
-    return status;
+  public getAll(): Observable<Status[]> {
+    return this.http.get<Status[]>('http://localhost:3000/status');
   }
 
-  GetByPaciente(pacienteId: number) {
-    return status.filter(stat => stat.paciente === pacienteId);
+  public get(id: number): Observable<Status[]> {
+    return this.http.get<Status[]>(`http://localhost:3000/status/${id}`);
+  }
+
+  public create(status: Status): Observable<Status> {
+    return this.http.post<Status>('http://localhost:3000/status', status);
   }
 }
