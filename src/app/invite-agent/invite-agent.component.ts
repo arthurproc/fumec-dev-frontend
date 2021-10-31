@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
 
 @Component({
-  selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+  selector: 'app-invite-agent',
+  templateUrl: './invite-agent.component.html',
+  styleUrls: ['./invite-agent.component.css']
 })
-export class TableListComponent implements OnInit {
+export class InviteAgentComponent implements OnInit {
 
   formModelInviteAgentInfo = {
     name: new FormControl("", [Validators.required]),

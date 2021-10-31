@@ -1,19 +1,51 @@
 {
-  "posts": [
+  "pacientes": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "nome": "Fulano de tal",
+      "genero": "M",
+      "dataNasc": "1988-08-16",
+      "profissionalSaude": false,
+      "profissionalSeguranca": false,
+      "contato": "98863-5299",
+      "bairro": "Centro",
+      "dataNotificacao": "2020-03-16",
+      "outrosFatores": "Não tem, ",
+      "vinculoEpidemiologico": "Não consta",
+      "fatoresRisco": [
+        "Não tem",
+        "Não tem 2"
+      ],
+      "internacoes": [],
+      "testes": [],
+      "outrosTestes": []
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "nome": "Fulano de tal",
+      "genero": "M",
+      "dataNasc": "1988-08-16",
+      "profissionalSaude": false,
+      "profissionalSeguranca": false,
+      "contato": "98863-5299",
+      "bairro": "Centro",
+      "dataNotificacao": "2020-03-16",
+      "outrosFatores": "Não tem, ",
+      "vinculoEpidemiologico": "Não consta",
+      "fatoresRisco": [
+        "Não tem",
+        "Não tem 2"
+      ],
+      "internacoes": [],
+      "testes": [],
+      "outrosTestes": [],
+      "id": 2
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "status": [],
+  "users": [
+    {
+      "email": "avprocopio@gmail.com",
+      "password": "123456"
+    }
+  ]
 }

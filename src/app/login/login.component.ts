@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
+import { User } from "app/model/user.model";
+import { AuthService } from "app/services/auth.service";
 
 @Component({
   selector: "app-login",
@@ -11,18 +13,19 @@ export class LoginComponent implements OnInit {
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
       Validators.required,
-      Validators.minLength(6),
-      Validators.pattern(/^(?=(?:.?[A-Z]){1})(?=(?:.?[0-9]){2})(?=(?:.?[!@#$%()+^&}{:;?.]){1})(?!.\s)[0-9a-zA-Z!@#$%;(){}+^&]*$/)
+      Validators.minLength(6)
     ]),
   };
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   handleLogin(): void {
-    console.log(this.formModel.email.value);
-    console.log(this.formModel.password.value);
+    const user: User = new User();
+    user.email = this.formModel.email.value;
+    user.password = this.formModel.password.value;
+    this.authService.login(user);
   }
 
   getErrorMessage(modelName) {
