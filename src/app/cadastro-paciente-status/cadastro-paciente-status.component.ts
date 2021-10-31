@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { Status } from 'app/model/status.model';
+import { StatusService } from 'app/services/status.service';
 
 @Component({
   selector: 'app-cadastro-paciente-status',
@@ -18,23 +20,38 @@ export class CadastroPacienteStatusComponent implements OnInit {
     internacao: new FormControl("", [Validators.required]),
     dataInicio: new FormControl("", [Validators.required]),
     outrosSintomas: new FormControl("", [Validators.required]),
-  }
+  };
 
-  constructor() { }
+  pacienteId = '';
+
+  constructor(
+    private statusService: StatusService
+  ) { }
+
+  isInserted = false;
 
   ngOnInit() {
   }
 
   handleStatus(): void {
-    console.log(this.formModelStatusInfo.data.value);
-    console.log(this.formModelStatusInfo.situacao.value);
-    console.log(this.formModelStatusInfo.observacao.value);
-    console.log(this.formModelStatusInfo.assintomatico.value);
-    console.log(this.formModelStatusInfo.sintomas.value);
-    console.log(this.formModelStatusInfo.internacao.value);
-    console.log(this.formModelStatusInfo.dataInicio.value);
-    console.log(this.formModelStatusInfo.outrosSintomas.value);
+    const novoStatus = new Status(
+      null,
+      this.pacienteId,
+      this.formModelStatusInfo.sintomas.value,
+      this.formModelStatusInfo.data.value,
+      this.formModelStatusInfo.dataInicio.value,
+      this.formModelStatusInfo.situacao.value,
+      this.formModelStatusInfo.observacao.value,
+      this.formModelStatusInfo.assintomatico.value,
+      this.formModelStatusInfo.internacao.value,
+      this.formModelStatusInfo.outrosSintomas.value,
+      null,
+    );
+
+    this.statusService.create(novoStatus).subscribe((result => {
+      if (result) {
+        this.isInserted = true;
+      }
+    }));
   }
-
-
 }
