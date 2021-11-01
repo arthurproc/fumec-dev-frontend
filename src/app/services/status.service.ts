@@ -25,4 +25,8 @@ export class StatusService {
   public create(status: Status): Observable<Status> {
     return this.http.post<Status>('http://localhost:3000/status', status);
   }
+
+  public getByPaciente(pacienteId: number): Observable<Status[]> {
+    return this.http.get<Status[]>(`http://localhost:3000/status?pacienteId=${pacienteId}`)
+  }
 }
